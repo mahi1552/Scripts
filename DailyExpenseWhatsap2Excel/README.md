@@ -2,7 +2,7 @@
 
 Whatsap can be used to manage daily expense notes.
 This is very handy for a couple or family who wish to manage 
-there daily expense overview together, but at the same they do not want to use an extra app for it.
+their daily expense overview together, but at the same they do not want to use an extra app for it.
 
 Start by creating a group where you and your partner, posts daily expenses in it.
 

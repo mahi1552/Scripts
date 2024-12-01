@@ -16,8 +16,8 @@ spent_by_list = []
 remarks_list = []
 amount_list = []
 
-# Regular expression pattern to match the required data
-pattern = re.compile(r'\[(\d{1,2}:\d{2} [apm]{2}), (\d{1,2}/\d{1,2}/\d{4})\] ([A-Z]+): (.+) ([a-zA-Z0-9.]+)')
+# Updated regular expression pattern
+pattern = re.compile(r'\[(\d{1,2}:\d{2} [apm]{2}), (\d{1,2}/\d{1,2}/\d{4})\] ([a-zA-Z ]+): (.+) ([a-zA-Z0-9.]+)')
 
 # Process each line with a count for "Match not found"
 for index, line in enumerate(lines):
@@ -25,11 +25,11 @@ for index, line in enumerate(lines):
     if match:
         time_list.append(match.group(1))
         date_list.append(match.group(2))
-        spent_by_list.append(match.group(3))
+        spent_by_list.append(match.group(3).strip())  # Remove extra spaces
         remarks_list.append(match.group(4))
         amount_list.append(match.group(5))
     else:
-        print(f"Match not found at line {index + 1}")
+        print(f"Match not found at line {index + 1}: {line.strip()}")  # Include line content for debugging
 
 # Create a DataFrame
 df = pd.DataFrame({
